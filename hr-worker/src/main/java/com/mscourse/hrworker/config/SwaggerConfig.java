@@ -30,8 +30,8 @@ public class SwaggerConfig {
 
     private ApiInfo metaInfo() {
         ApiInfo apiInfo = new ApiInfo(
-            "Meetings API REST",
-            "REST API for meeting schedules",
+            "Workers Resource API REST",
+            "REST API for managing workers",
             "1.0",
             "Terms of Servive",
             new Contact("Gubertech", "https://gubertech.com/", "contato@gubertech.com"),
