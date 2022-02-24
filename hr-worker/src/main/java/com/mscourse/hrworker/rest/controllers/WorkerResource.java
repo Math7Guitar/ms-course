@@ -26,12 +26,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/api/workers")
+@Api(value = "Workers Resource API REST")
 public class WorkerResource {
 
     private final WorkerService service;
