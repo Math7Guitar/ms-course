@@ -2,7 +2,6 @@ package com.mscourse.hrworker.rest.controllers;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 import com.mscourse.hrworker.model.entities.Worker;
 import com.mscourse.hrworker.rest.exceptions.Worker.DeleteWorkerException;
@@ -68,9 +67,9 @@ public class WorkerResource {
     }
 
     @GetMapping("/{id}") @ResponseStatus(HttpStatus.FOUND) @ApiOperation(value="Consult a worker on db")
-    public ResponseEntity<Optional<Worker>> consultWorker(@PathVariable Long id) {
+    public ResponseEntity<Worker> consultWorker(@PathVariable Long id) {
         try {
-            Optional<Worker> worker = service.findWorkerById(id);
+            Worker worker = service.findWorkerById(id);
             return ResponseEntity.ok().body(worker);
         } catch (WorkerListException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());

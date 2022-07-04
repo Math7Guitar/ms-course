@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity @Table(name = "tb_worker")
+@Entity @Table(name = "TB_WORKER")
 public class Worker implements Serializable {
 
     //private static final long serialVersionUID = 1L;

@@ -1,0 +1,30 @@
+#Application
+spring:
+ application:
+  name: hr-worker
+ datasource:
+  username: sa
+  password:
+ h2:
+ console:
+  enabled: true
+  path: /h2-console
+ jpa:
+  hibernate:
+   ddl-auto: update
+  defer-datasource-initialization: true
+  database-platform: org.hibernate.dialect.H2Dialect
+ mvc:
+  pathmatch:
+   matching-strategy: ant-path-matcher  
+
+server:
+ port: ${PORT:0}
+
+#Eureka
+eureka:
+ client:
+  service-url:
+   defaultZone: http://localhost:8761/eureka
+   instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+ 

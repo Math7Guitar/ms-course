@@ -1,10 +1,9 @@
 package com.mscourse.hrworker.rest.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.mscourse.hrworker.model.entities.Worker;
-import com.mscourse.hrworker.model.repositories.WorkerRepository;
+import com.mscourse.hrworker.rest.repositories.WorkerRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,8 +29,8 @@ public class WorkerService {
         return repository.findAll();
     }
 
-    public Optional<Worker> findWorkerById(Long id) {
-        return repository.findById(id);
+    public Worker findWorkerById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT));
     }
 
     public Worker updateWorker(Long id, Worker update) {

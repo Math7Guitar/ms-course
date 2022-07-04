@@ -1,4 +1,4 @@
-package com.mscourse.hrworker.config;
+package com.mscourse.hrpayroll.config;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -10,7 +10,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/api/worker/**", "/eureka/**").permitAll();
+        http.authorizeRequests().antMatchers("/api/payments/**", "/eureka/**").permitAll();
         http.csrf().disable().cors().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.headers().frameOptions().disable();
     }

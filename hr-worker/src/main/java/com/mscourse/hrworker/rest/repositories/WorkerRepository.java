@@ -1,4 +1,4 @@
-package com.mscourse.hrworker.model.repositories;
+package com.mscourse.hrworker.rest.repositories;
 
 import com.mscourse.hrworker.model.entities.Worker;
 
