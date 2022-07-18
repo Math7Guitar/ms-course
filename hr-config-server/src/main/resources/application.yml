@@ -1,12 +1,17 @@
+# Server Config
+server:
+ port: 8888
+
+# Application Config
 spring:
  application:
   name: hr-config-server
+ profiles:
+  active:
+   - native
  cloud:
   config:
    server:
     git:
      default-label: main
-     uri: 
-
-server:
- port: 8888
+     uri: https://github.com/Math7Guitar/ms-course/tree/main/hr-config-server

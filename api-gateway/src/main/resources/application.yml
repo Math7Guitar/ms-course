@@ -1,12 +1,39 @@
+# Server Config
 server:
- port: 8765
+  port: 8765
 
-spring:
- application:
-  name: hr-api-gateway
-
-#Eureka
+#Eureka  Config
 eureka:
- client:
+  client:
   service-url:
-   defaultZone: http://localhost:8761/eureka
+    defaultZone: http://localhost:8761/eureka
+
+# Application Config
+spring:
+  application:
+    name: hr-api-gateway
+  cloud:
+    config:
+      import-check:
+        enabled: false
+  discovery:
+    enabled: true
+  gateway:
+    dicovery:
+      locator:
+        enabled: true
+    routes:
+      - id: hr-payroll
+        uri: lb://hr-payroll
+        predicates:
+        - Path=/hr-payroll/**
+      - id: hr-worker
+        uri: lb://hr-worker
+        predicates:
+        - Path=/hr-worker/**
+      - id: openapi
+        uri: lb://api-gateway
+        predicates:
+        - Path=/v3/api-docs/**
+          filters:
+            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs

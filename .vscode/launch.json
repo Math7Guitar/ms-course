@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch HrWorkerApplication",
+            "request": "launch",
+            "mainClass": "HrWorkerApplication",
+            "projectName": "hr-worker"
+        },
+        {
+            "type": "java",
+            "name": "Launch HrConfigServerApplication",
+            "request": "launch",
+            "mainClass": "com.mscourse.hrconfigserver.HrConfigServerApplication",
+            "projectName": "hr-config-server"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-HrEurekaServerApplication<hr-eureka-server>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

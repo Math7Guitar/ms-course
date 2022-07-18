@@ -2,7 +2,6 @@ package com.mscourse.hrworker.rest.controllers;
 
 import java.net.URI;
 import java.util.List;
-
 import com.mscourse.hrworker.model.entities.Worker;
 import com.mscourse.hrworker.rest.exceptions.Worker.DeleteWorkerException;
 import com.mscourse.hrworker.rest.exceptions.Worker.SaveWorkerException;
@@ -25,26 +24,37 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/api/workers")
-@Api(value = "Workers Resource API REST")
+@Tag(name = "Workers Resource API REST")
 public class WorkerResource {
 
     private final WorkerService service;
+    //private static final String template = "%s, %s!";
+    //private final AtomicLong counter;
 
     @Autowired
-    protected WorkerResource(WorkerService service) {
+    public WorkerResource(WorkerService service) {
         this.service = service;
     }
+
+    //Info
+    /*@GetMapping("/info")
+    public Greeting info(@RequestParam(value="name", defaultValue = "") String name) {
+        if(name.isEmpty()) {
+            name = config.getDefaultValue();
+        }
+        return new Greeting(counter.incrementAndGet(), String.format(template, config.getGreeting(), name))
+    }*/
+
     
     //CRUD
-
-    @PostMapping @ResponseStatus(HttpStatus.CREATED) @ApiOperation(value="Save a worker on db")
+    @PostMapping @ResponseStatus(HttpStatus.CREATED) @Operation(summary="Save a worker on db")
     public ResponseEntity<Worker> saveWorker(@RequestBody @Valid Worker worker) {
         try {
             service.saveWorker(worker);
@@ -56,7 +66,7 @@ public class WorkerResource {
     }
 
 
-    @GetMapping @ResponseStatus(HttpStatus.FOUND) @ApiOperation(value="Bring a worker list from db")
+    @GetMapping @ResponseStatus(HttpStatus.FOUND) @Operation(summary="Bring a worker list from db")
     public ResponseEntity<List<Worker>> workerList() {
         try {
             List<Worker> workerList = service.workerList();
@@ -66,7 +76,7 @@ public class WorkerResource {
         }
     }
 
-    @GetMapping("/{id}") @ResponseStatus(HttpStatus.FOUND) @ApiOperation(value="Consult a worker on db")
+    @GetMapping("/{id}") @ResponseStatus(HttpStatus.FOUND) @Operation(summary="Consult a worker on db")
     public ResponseEntity<Worker> consultWorker(@PathVariable Long id) {
         try {
             Worker worker = service.findWorkerById(id);
@@ -76,7 +86,7 @@ public class WorkerResource {
         }
     }
 
-    @PutMapping("/{id}") @ApiOperation(value="Update a worker on db")
+    @PutMapping("/{id}") @Operation(summary="Update a worker on db")
     public ResponseEntity<Worker> updateWorker(Long id, Worker update) {
         try {
             Worker updated = new Worker();
@@ -87,7 +97,7 @@ public class WorkerResource {
         }
     }
 
-    @DeleteMapping("/{id}") @ApiOperation(value="Delete a worker on db")
+    @DeleteMapping("/{id}") @Operation(summary="Delete a worker on db")
     public ResponseEntity<Void> deleteMeet(@PathVariable Long id) {
         try {
             service.deleteWorker(id);
