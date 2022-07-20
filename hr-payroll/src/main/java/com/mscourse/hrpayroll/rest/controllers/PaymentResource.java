@@ -6,6 +6,7 @@ import com.mscourse.hrpayroll.rest.services.PaymentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 @RequestMapping(value = "/api/payments")
 @Tag(name = "Payroll Resource API REST")
+@RefreshScope
 public class PaymentResource {
     
     private PaymentService service;

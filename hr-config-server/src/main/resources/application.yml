@@ -14,4 +14,4 @@ spring:
    server:
     git:
      default-label: main
-     uri: https://github.com/Math7Guitar/ms-course/tree/main/hr-config-server
+     uri: https://github.com/Math7Guitar/ms-course/configurations

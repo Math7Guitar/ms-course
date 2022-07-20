@@ -10,6 +10,7 @@ import com.mscourse.hrworker.rest.exceptions.Worker.WorkerListException;
 import com.mscourse.hrworker.rest.services.WorkerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,6 +33,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(value = "/api/workers")
 @Tag(name = "Workers Resource API REST")
+@RefreshScope
 public class WorkerResource {
 
     private final WorkerService service;
