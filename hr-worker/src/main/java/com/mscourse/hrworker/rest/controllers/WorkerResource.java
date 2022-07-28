@@ -2,6 +2,8 @@ package com.mscourse.hrworker.rest.controllers;
 
 import java.net.URI;
 import java.util.List;
+
+import com.mscourse.hrworker.model.classes.Greeting;
 import com.mscourse.hrworker.model.entities.Worker;
 import com.mscourse.hrworker.rest.exceptions.Worker.DeleteWorkerException;
 import com.mscourse.hrworker.rest.exceptions.Worker.SaveWorkerException;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -37,22 +40,21 @@ import javax.validation.Valid;
 public class WorkerResource {
 
     private final WorkerService service;
-    //private static final String template = "%s, %s!";
-    //private final AtomicLong counter;
+    private static final String template = "%s, %s!";
+    //private AtomicLong counter;
 
     @Autowired
     public WorkerResource(WorkerService service) {
         this.service = service;
     }
 
-    //Info
-    /*@GetMapping("/info")
-    public Greeting info(@RequestParam(value="name", defaultValue = "") String name) {
-        if(name.isEmpty()) {
-            name = config.getDefaultValue();
-        }
-        return new Greeting(counter.incrementAndGet(), String.format(template, config.getGreeting(), name))
-    }*/
+    //@GetMapping("/info")
+    //public Greeting info(@RequestParam(value="name", defaultValue = "") String name) {
+        //if(name.isEmpty()) {
+            //name = config.getDefaultValue();
+        //}
+        //return new Greeting(counter.incrementAndGet(), String.format(template, config.getGreeting(), name))
+    //}
 
     
     //CRUD

@@ -1,17 +1,21 @@
 # Server Config
 server:
- port: 8888
+  port: 8888
 
 # Application Config
 spring:
- application:
-  name: hr-config-server
- profiles:
-  active:
-   - native
- cloud:
-  config:
-   server:
-    git:
-     default-label: main
-     uri: https://github.com/Math7Guitar/ms-course/configurations
+  application:
+    name: hr-config-server
+  profiles:
+    active:
+    - native
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Math7Guitar/ms-course-config/
+          default-label: main
+          username: Math7Guitar
+          password: Mza331998
+          search-paths:
+          - 'config*'

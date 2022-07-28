@@ -1,11 +1,13 @@
-#Application
-spring:
- application:
-  name: hr-eureka-server
+# Server Config
 server:
  port: 8761
 
-#Eureka
+#Application Config
+spring:
+ application:
+  name: hr-eureka-server
+
+#Eureka Config
 eureka:
  client:
   register-with-eureka: false
