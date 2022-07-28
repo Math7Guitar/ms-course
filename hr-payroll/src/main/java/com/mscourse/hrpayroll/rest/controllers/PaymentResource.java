@@ -18,7 +18,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping(value = "/api/payments")
+@RequestMapping(value = "/hr-payroll")
 @Tag(name = "Payroll Resource API REST")
 @RefreshScope
 public class PaymentResource {
