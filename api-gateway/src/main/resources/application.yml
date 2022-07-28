@@ -27,12 +27,12 @@ spring:
         lower-case-service-id: true
     routes:
       - id: hr-payroll
-        uri: lb://hr-payroll
+        uri: lb://hr-payroll/
         predicates:
         - Path=/hr-payroll/**
       #===============================
       - id: hr-worker
-        uri: lb://hr-worker
+        uri: lb://hr-worker/
         predicates:
         - Path=/hr-worker/**
       #===============================
@@ -52,8 +52,11 @@ management:
 
 logging:
   level:
-    org.springframework.cloud.gateway: TRACE
-    org.springframework.http.server.reactive: DEBUG
-    org.springframework.web.reactive: DEBUG
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE
+          http.server.reactive: DEBUG
+          web.reactive: DEBUG
     reactor.ipc.netty: DEBUG
     reactor.netty: DEBUG

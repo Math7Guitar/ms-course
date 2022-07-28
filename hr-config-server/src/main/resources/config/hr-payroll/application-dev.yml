@@ -1,0 +1,27 @@
+# Application
+spring:
+   application:
+      name: hr-payroll
+   mvc:
+      pathmatch:
+         matching-strategy: ant-path-matcher
+
+#Eureka
+eureka:
+   client:
+      service-url:
+         defaultZone: http://localhost:8761/eureka
+
+
+resilience4j:
+   retry:
+      intances:
+         getPayment:
+            max-attempts: 5
+            wait-duration: 1s
+
+# Spring Docs Config
+springdoc:
+   api-docs:
+      path: hr-payroll/v3/api-docs
+ 

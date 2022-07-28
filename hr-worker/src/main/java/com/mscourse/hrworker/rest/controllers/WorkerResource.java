@@ -36,7 +36,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/api/workers")
+@RequestMapping(value = "/hr-worker")
 @RefreshScope
 @Tag(name = "Workers Resource API REST")
 public class WorkerResource {
