@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Startup",
+            "request": "launch",
+            "mainClass": "com.mscourse.apigateway.Startup",
+            "projectName": "api-gateway"
+        },
+        {
+            "type": "java",
             "name": "Launch HrWorkerApplication",
             "request": "launch",
             "mainClass": "HrWorkerApplication",
@@ -61,6 +68,46 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.mscourse.apigateway.ApiGatewayApplication",
             "projectName": "api-gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Startup<hr-worker>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mscourse.hrworker.Startup",
+            "projectName": "hr-worker",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Startup<hr-config-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mscourse.hrconfigserver.Startup",
+            "projectName": "hr-config-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Startup<hr-eureka-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mscourse.hreurekaserver.Startup",
+            "projectName": "hr-eureka-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Startup<hr-payroll>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mscourse.hrpayroll.Startup",
+            "projectName": "hr-payroll",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

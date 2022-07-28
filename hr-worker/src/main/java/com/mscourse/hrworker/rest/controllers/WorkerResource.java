@@ -2,7 +2,9 @@ package com.mscourse.hrworker.rest.controllers;
 
 import java.net.URI;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
+import com.mscourse.hrworker.config.GreetingConfig;
 import com.mscourse.hrworker.model.classes.Greeting;
 import com.mscourse.hrworker.model.entities.Worker;
 import com.mscourse.hrworker.rest.exceptions.Worker.DeleteWorkerException;
@@ -35,26 +37,29 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/api/workers")
-@Tag(name = "Workers Resource API REST")
 @RefreshScope
+@Tag(name = "Workers Resource API REST")
 public class WorkerResource {
 
     private final WorkerService service;
     private static final String template = "%s, %s!";
-    //private AtomicLong counter;
+    private final AtomicLong counter;
+    private final GreetingConfig config;
 
     @Autowired
-    public WorkerResource(WorkerService service) {
+    public WorkerResource(WorkerService service, AtomicLong counter, GreetingConfig config) {
         this.service = service;
+        this.config = config;
+        this.counter = counter;
     }
 
-    //@GetMapping("/info")
-    //public Greeting info(@RequestParam(value="name", defaultValue = "") String name) {
-        //if(name.isEmpty()) {
-            //name = config.getDefaultValue();
-        //}
-        //return new Greeting(counter.incrementAndGet(), String.format(template, config.getGreeting(), name))
-    //}
+    @GetMapping("/info")
+    public Greeting info(@RequestParam(value="name", defaultValue = "World!") String name) {
+        if(name.isEmpty()) {
+            name = config.getDefaultValue();
+        }
+        return new Greeting(counter.incrementAndGet(), String.format(template, config.getGreeting(), name));
+    }
 
     
     //CRUD

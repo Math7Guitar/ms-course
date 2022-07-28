@@ -9,22 +9,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity @Table(name = "TB_WORKER")
+import org.springframework.data.annotation.PersistenceConstructor;
+
+@Entity
+@Table(name="TB_WORKER")
 public class Worker implements Serializable {
 
-    //private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "NAME")
     private String name;
 
     @Column(name = "DAILYINCOME")
     private Double dailyIncome;
 
     //Construtors
+    @PersistenceConstructor
     public Worker(Long id, String name, Double dailyIncome) {
         this.setId(id);
         this.setName(name);

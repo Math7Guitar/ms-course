@@ -10,7 +10,7 @@ spring:
       import: optional:configserver:http://localhost:8888/
    cloud:
       config:
-         profile: default
+         profile: prd
    mvc:
       pathmatch:
          matching-strategy: ant-path-matcher

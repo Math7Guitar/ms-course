@@ -1,31 +1,33 @@
 package com.mscourse.hrworker.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 @Component
-@RefreshScope
-@ConfigurationProperties(value = "hr-worker")
-public class HrWorkerConfig {
+@ConfigurationProperties("hr-worker")
+public class GreetingConfig {
     
-    private String greeting, defaultValue;
-    
+    //Atributes
+    private String greeting;
+    private String defaultValue;
+
     //Constructors
-    public HrWorkerConfig(String greeting, String defaultValue) {
+    public GreetingConfig(String greeting, String defaultValue) {
         setGreeting(greeting);
         setDefaultValue(defaultValue);
     }
 
-    public HrWorkerConfig() {}
+    public GreetingConfig() {}
 
 
     //Getters
     public String getGreeting() { return greeting; }
     public String getDefaultValue() { return defaultValue; }
 
-    
+
     //Setters
     public void setGreeting(String greeting) { this.greeting = greeting; }
     public void setDefaultValue(String defaultValue) { this.defaultValue = defaultValue; }
+
+
 }

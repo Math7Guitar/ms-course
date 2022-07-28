@@ -12,6 +12,8 @@ eureka:
 spring:
   application:
     name: hr-api-gateway
+  jmx:
+    enabled: false
   cloud:
     config:
       import-check:
@@ -28,10 +30,12 @@ spring:
         uri: lb://hr-payroll
         predicates:
         - Path=/hr-payroll/**
+      #===============================
       - id: hr-worker
         uri: lb://hr-worker
         predicates:
         - Path=/hr-worker/**
+      #===============================
       - id: hr-api-gateway
         uri: lb://hr-api-gateway
         predicates:
@@ -41,10 +45,15 @@ spring:
 
 # Management
 management:
-  endpoint:
-    health:
-      show-details: always
   endpoints:
     web:
       exposure:
-        include: gateway, health
+        include: '*'
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG
