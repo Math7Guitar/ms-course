@@ -4,6 +4,13 @@
             "type": "java",
             "name": "Launch Startup",
             "request": "launch",
+            "mainClass": "com.mscourse.hruser.Startup",
+            "projectName": "hr-user"
+        },
+        {
+            "type": "java",
+            "name": "Launch Startup",
+            "request": "launch",
             "mainClass": "com.mscourse.apigateway.Startup",
             "projectName": "api-gateway"
         },

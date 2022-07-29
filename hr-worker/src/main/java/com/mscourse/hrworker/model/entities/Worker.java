@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.springframework.data.annotation.PersistenceConstructor;
 
 @Entity
-@Table(name="TB_WORKER")
+@Table(name="TB_WORKERS")
 public class Worker implements Serializable {
 
     private static final long serialVersionUID = 1L;
