@@ -1,1 +1,11 @@
+# Server Config
+server:
+  port: ${PORT:0}
 
+# Application Config
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888/
+  cloud:
+    config:
+      profile: dev

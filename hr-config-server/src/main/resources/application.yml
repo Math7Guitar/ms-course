@@ -18,5 +18,4 @@ spring:
           username: Math7Guitar
           password: Mza331998
           search-paths:
-          - 'config/hr-payroll/*'
-          - 'config/hr-worker/*'
+          - 'config/*'
