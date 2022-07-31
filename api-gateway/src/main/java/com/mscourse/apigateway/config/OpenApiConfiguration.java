@@ -16,12 +16,12 @@ public class OpenApiConfiguration {
 
     @Bean
     @Lazy(false)
-    public List<GroupedOpenApi> api(SwaggerUiConfigParameters config, RouteDefinitionLocator locator){
+    public List<GroupedOpenApi> apis(SwaggerUiConfigParameters config, RouteDefinitionLocator locator){
         var definitions = locator.getRouteDefinitions().collectList().block();
 
         definitions.stream().filter(
             routeDefinition -> routeDefinition.getId()
-                .matches(".hr-*"))
+                .matches("hr-*"))
                     .forEach(routeDefinition -> {
                         String name = routeDefinition.getId();
                         config.addGroup(name);
