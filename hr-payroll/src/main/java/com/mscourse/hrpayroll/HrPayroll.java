@@ -10,10 +10,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableEurekaClient
 @EnableFeignClients
 @SpringBootApplication
-public class Startup {
+public class HrPayroll {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Startup.class, args);
+		SpringApplication.run(HrPayroll.class, args);
 	}
 
 }

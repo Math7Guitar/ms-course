@@ -1,14 +1,11 @@
 # Server Config
 server:
-  port: 8888
+  port: 8889
 
 # Application Config
 spring:
   application:
     name: hr-config-server
-  profiles:
-    active:
-    - native
   cloud:
     config:
       server:

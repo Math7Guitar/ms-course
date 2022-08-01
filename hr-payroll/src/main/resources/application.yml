@@ -7,7 +7,7 @@ spring:
    application:
       name: hr-payroll
    config:
-      import: optional:configserver:http://localhost:8888/config/hr-payroll
+      import: optional:configserver:http://localhost:8889/config/hr-payroll
    cloud:
       config:
          profile: dev

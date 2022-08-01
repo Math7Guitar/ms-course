@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Gateway",
+            "request": "launch",
+            "mainClass": "com.mscourse.apigateway.Gateway",
+            "projectName": "api-gateway"
+        },
+        {
+            "type": "java",
             "name": "Launch Startup",
             "request": "launch",
             "mainClass": "com.mscourse.hruser.Startup",
@@ -115,6 +122,26 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.mscourse.hrpayroll.Startup",
             "projectName": "hr-payroll",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ConfigServer<hr-config-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mscourse.hrconfigserver.ConfigServer",
+            "projectName": "hr-config-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EurekaServer<hr-eureka-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mscourse.hreurekaserver.EurekaServer",
+            "projectName": "hr-eureka-server",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

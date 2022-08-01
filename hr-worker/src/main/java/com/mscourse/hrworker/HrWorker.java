@@ -8,9 +8,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @EnableEurekaClient
 @SpringBootApplication
-public class Startup {
+public class HrWorker {
 	public static void main(String[] args) {
-		SpringApplication.run(Startup.class, args);
+		SpringApplication.run(HrWorker.class, args);
 	}
 
 }
