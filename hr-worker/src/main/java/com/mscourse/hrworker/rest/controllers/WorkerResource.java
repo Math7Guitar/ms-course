@@ -41,17 +41,14 @@ import javax.validation.Valid;
 @Tag(name = "Workers Resource API REST")
 public class WorkerResource {
 
-    private final WorkerService service;
-    private static final String template = "%s, %s!";
-    private final AtomicLong counter;
-    private final GreetingConfig config;
-
     @Autowired
-    public WorkerResource(WorkerService service, AtomicLong counter, GreetingConfig config) {
-        this.service = service;
-        this.config = config;
-        this.counter = counter;
-    }
+    private WorkerService service;
+    private static final String template = "%s, %s!";
+    private final AtomicLong counter = new AtomicLong();
+    
+    @Autowired
+    private GreetingConfig config;
+
 
     @GetMapping("/info")
     public Greeting info(@RequestParam(value="name", defaultValue = "World!") String name) {

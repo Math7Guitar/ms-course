@@ -6,6 +6,9 @@ server:
 spring:
   application:
     name: hr-config-server
+#  profiles:
+#    active:
+#    - native
   cloud:
     config:
       server:
@@ -15,4 +18,6 @@ spring:
           username: Math7Guitar
           password: Mza331998
           search-paths:
-          - 'config/*'
+          - 'hr-payroll*'
+          - 'hr-user*'
+          - 'hr-worker*'
