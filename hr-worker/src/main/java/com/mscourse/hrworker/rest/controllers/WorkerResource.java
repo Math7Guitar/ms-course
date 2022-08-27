@@ -55,7 +55,7 @@ public class WorkerResource {
         if(name.isEmpty()) {
             name = config.getDefaultValue();
         }
-        return new Greeting(counter.incrementAndGet(), String.format(template, config.getGreeting(), name));
+        return new Greeting(1, String.format(template, config.getGreeting(), name));
     }
 
     
